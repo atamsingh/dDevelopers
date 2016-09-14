@@ -1,4 +1,4 @@
-# DeveloperDen
+# Developing Developers
 
 Lets get started people!
 
