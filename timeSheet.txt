@@ -27,9 +27,10 @@ Group (9/22)	Meeting - Discussing and dividing of D1 components among the 	1.5
 
 (We were working on D1 in this time slot)
 
+Arzaan(9/25)	Completed component of D1					2
 Corey (9/25)	Completed component of D1					3
-Group (9/25)	Gather in the Lib. to check and compile proposal components,	3
-		build and record presentation					
+Group (9/25)	Gather in the Lib. to check and compile proposal components	3
+Group (9/25)	Gather in the Lib. to prepare and record the presentation	3	
 Sunny (9/26)	Submit D1
 Corey (9/26)	Created Presentation						.5
       (9/27)	Day of presentations
