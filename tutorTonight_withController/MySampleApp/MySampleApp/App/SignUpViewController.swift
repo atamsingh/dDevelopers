@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController {
     
     // CALL AWS GIVEN JSON
     @IBAction func signUpButtonPress(sender: AnyObject) {
+        
 
         if firstNameBox.text!.characters.count < 2  ||
             lastNameBox.text!.characters.count < 2  ||

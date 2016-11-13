@@ -524,7 +524,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="AzY-sB-Dub" kind="show" id="bV9-NB-Dxy"/>
+                                    <segue destination="AzY-sB-Dub" kind="presentation" id="bV9-NB-Dxy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyQ-Xe-Ykm">
@@ -758,81 +758,12 @@
                         <outlet property="lastNameBox" destination="Rdj-Ex-Adf" id="qbf-E3-bhU"/>
                         <outlet property="passwordBox" destination="mmP-VT-TPP" id="tmO-VH-dAF"/>
                         <outlet property="signUpButton" destination="S0h-ld-if4" id="r5j-EF-goC"/>
-                        <segue destination="JPN-bR-H0W" kind="show" identifier="signup2main" id="pkH-Ib-m3a"/>
+                        <segue destination="JPN-bR-H0W" kind="presentation" identifier="signup2main" id="pkH-Ib-m3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jok-ab-O6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4498" y="2590"/>
-        </scene>
-        <!--Confirm Account-->
-        <scene sceneID="bVB-IN-DD0">
-            <objects>
-                <viewController id="bnn-y1-4h9" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aXR-uo-yKL"/>
-                        <viewControllerLayoutGuide type="bottom" id="MSu-Bs-5Vd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HMp-hi-tQM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsy-bY-zyv">
-                                <rect key="frame" x="16" y="414" width="288" height="46"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="B5P-7P-P75"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Hxx-Z6-KDa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="JPN-bR-H0W" kind="presentation" id="1eP-DB-IgL"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="TT_whiteLogo" translatesAutoresizingMaskIntoConstraints="NO" id="8e5-T9-YGB">
-                                <rect key="frame" x="15.299471298398885" y="68.000000000000114" width="287.99999999999977" height="74"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="18Z-7i-gdo"/>
-                                    <constraint firstAttribute="height" constant="75" id="BTk-Jl-HyR"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Please check your email confirmation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mem-wm-YMM">
-                                <rect key="frame" x="17" y="204" width="285" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="gDl-vW-N9K"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mem-wm-YMM" secondAttribute="trailing" constant="-10" id="5Im-5b-SQZ"/>
-                            <constraint firstItem="vsy-bY-zyv" firstAttribute="leading" secondItem="HMp-hi-tQM" secondAttribute="leading" constant="10" id="A1J-27-efS"/>
-                            <constraint firstItem="mem-wm-YMM" firstAttribute="leading" secondItem="HMp-hi-tQM" secondAttribute="leading" constant="10" id="BH4-gX-iw9"/>
-                            <constraint firstItem="8e5-T9-YGB" firstAttribute="centerX" secondItem="HMp-hi-tQM" secondAttribute="centerX" id="GHM-et-KeR"/>
-                            <constraint firstItem="mem-wm-YMM" firstAttribute="leading" secondItem="HMp-hi-tQM" secondAttribute="leading" constant="10" id="LfR-lW-oUr"/>
-                            <constraint firstItem="8e5-T9-YGB" firstAttribute="top" secondItem="aXR-uo-yKL" secondAttribute="bottom" constant="50" id="RgS-c8-HYf"/>
-                            <constraint firstItem="8e5-T9-YGB" firstAttribute="leading" secondItem="HMp-hi-tQM" secondAttribute="leading" constant="10" id="ZOq-a2-Px2"/>
-                            <constraint firstAttribute="trailing" secondItem="8e5-T9-YGB" secondAttribute="trailing" constant="10" id="csR-JH-uFr"/>
-                            <constraint firstItem="MSu-Bs-5Vd" firstAttribute="top" secondItem="vsy-bY-zyv" secondAttribute="bottom" constant="10" id="hRG-AZ-EUn"/>
-                            <constraint firstAttribute="trailing" secondItem="vsy-bY-zyv" secondAttribute="trailing" constant="10" id="qNo-tH-OQx"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Confirm Account" id="lkx-Sq-u4A"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eev-YF-Sqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3711" y="2590"/>
         </scene>
         <!--Settings-->
         <scene sceneID="37O-Iq-wWN">
