@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A3759BAD1DD7F06300044E4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3759BAC1DD7F06300044E4B /* LoginViewController.swift */; };
+		A3F26B761DD7F63700625261 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F26B751DD7F63700625261 /* SignUpViewController.swift */; };
 		E7A30F04008C68BE00000000 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29E52635A100000000 /* UserSettingsViewController.swift */; };
 		E7A30F040110D0C400000000 /* AWSSNS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E298CC81CA300000000 /* AWSSNS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7A30F040110D0C400000001 /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E298CC81CA300000000 /* AWSSNS.framework */; };
@@ -135,6 +136,7 @@
 		1DD70E29FD4D584200000000 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MySampleApp/App/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		1DD70E29FF0A325000000000 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = MySampleApp/App/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 		A3759BAC1DD7F06300044E4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MySampleApp/App/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		A3F26B751DD7F63700625261 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = MySampleApp/App/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 				1DD70E29FD4D584200000000 /* Images.xcassets */,
 				1DD70E2980EDE1B200000000 /* Launch Screen.storyboard */,
 				1DD70E29D81842DE00000000 /* Main.storyboard */,
+				A3F26B751DD7F63700625261 /* SignUpViewController.swift */,
 				A3759BAC1DD7F06300044E4B /* LoginViewController.swift */,
 				1DD70E29FF0A325000000000 /* MainViewController.swift */,
 				B401C979F9C1C1EF00000000 /* SignIn */,
@@ -495,6 +498,7 @@
 				E7A30F041CB48F3500000000 /* UserDataStorageViewController.swift in Sources */,
 				E7A30F047E55C98100000000 /* DemoFeature.swift in Sources */,
 				E7A30F04AE7F3A9200000000 /* ColorThemeSettings.swift in Sources */,
+				A3F26B761DD7F63700625261 /* SignUpViewController.swift in Sources */,
 				E7A30F0497F38FCE00000000 /* UtilityFunctions.swift in Sources */,
 				E7A30F04A916313200000000 /* MainViewController.swift in Sources */,
 				E7A30F043ED111E000000000 /* AppAnalyticsViewController.swift in Sources */,
