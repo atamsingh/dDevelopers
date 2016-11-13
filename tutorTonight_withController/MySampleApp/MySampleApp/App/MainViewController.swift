@@ -34,11 +34,13 @@ class MainViewController: UITableViewController {
 
         
         var demoFeature = DemoFeature.init(
-            name: NSLocalizedString("User Sign-in",
-                comment: "Label for demo menu option."),
+            name: NSLocalizedString("Account Details",
+                comment: "View your user credentials."),
             detail: NSLocalizedString("Enable user login with popular 3rd party providers.",
                 comment: "Description for demo menu option."),
-            icon: "UserIdentityIcon", storyboard: "UserIdentity")
+            icon: "UserIdentityIcon",
+            seg: "accountSeg"
+        )
         
         demoFeatures.append(demoFeature)
         
@@ -46,44 +48,52 @@ class MainViewController: UITableViewController {
             name: NSLocalizedString("Push Notifications",
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("Send individual or group push notifications to your apps.",
-                comment: "Description for demo menu option."),
-            icon: "PushIcon", storyboard: "PushNotification")
+                comment: "Manage your push notification settings."),
+            icon: "PushIcon",
+            seg: "pushSeg"
+        )
         
         demoFeatures.append(demoFeature)
         
         demoFeature = DemoFeature.init(
-            name: NSLocalizedString("App Content Delivery",
+            name: NSLocalizedString("Payment ",
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("Store and distribute media assets and other files via global content delivery network.",
-                comment: "Description for demo menu option."),
-            icon: "ContentDeliveryIcon", storyboard: "ContentDelivery")
+                comment: "Manage your payment information."),
+            icon: "ContentDeliveryIcon",
+            seg: "paymentSeg"
+        )
         
         demoFeatures.append(demoFeature)
         
         demoFeature = DemoFeature.init(
-            name: NSLocalizedString("User Data Storage",
+            name: NSLocalizedString("Transcript",
                 comment: "Label for demo menu option."),
-            detail: NSLocalizedString("Save user files in the cloud and sync user data in key/value pairs.",
+            detail: NSLocalizedString("View your verified courses.",
             comment: "Description for demo menu option."),
-            icon: "UserFilesIcon", storyboard: "UserDataStorage")
+            icon: "UserFilesIcon",
+            seg: "courseSeg"
+        )
         
         demoFeatures.append(demoFeature)
         
-        demoFeature = DemoFeature.init(
-            name: NSLocalizedString("App Analytics",
-                comment: "Label for demo menu option."),
-            detail: NSLocalizedString("Collect, visualize and export app usage metrics.",
-            comment: "Description for demo menu option."),
-            icon: "AppAnalyticsIcon", storyboard: "AppAnalytics")
+//        demoFeature = DemoFeature.init(
+//            name: NSLocalizedString("App Analytics",
+//                comment: "Label for demo menu option."),
+//            detail: NSLocalizedString("Collect, visualize and export app usage metrics.",
+//            comment: "Description for demo menu option."),
+//            icon: "AppAnalyticsIcon")
+//        
+//        demoFeatures.append(demoFeature)
         
-        demoFeatures.append(demoFeature)
-        
         demoFeature = DemoFeature.init(
-            name: NSLocalizedString("Cloud Logic",
+            name: NSLocalizedString("About Us",
                 comment: "Label for demo menu option."),
-            detail: NSLocalizedString("Run backend functions in the cloud.",
+            detail: NSLocalizedString("App version, changelog, etc.",
                 comment: "Description for demo menu option."),
-            icon: "CloudLogicIcon", storyboard: "CloudLogic")
+            icon: "CloudLogicIcon",
+            seg: "aboutSeg"
+        )
         
         demoFeatures.append(demoFeature)
 
@@ -112,9 +122,10 @@ class MainViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let demoFeature = demoFeatures[indexPath.row]
-        let storyboard = UIStoryboard(name: demoFeature.storyboard, bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(demoFeature.storyboard)
-        self.navigationController!.pushViewController(viewController, animated: true)
+//        let storyboard = UIStoryboard(name: demoFeature.storyboard, bundle: nil)
+//        let viewController = storyboard.instantiateViewControllerWithIdentifier(demoFeature.storyboard)
+//        self.navigationController!.pushViewController(viewController, animated: true)
+        self.performSegueWithIdentifier(demoFeature.seg, sender: nil)
     }
 
     func updateTheme() {
