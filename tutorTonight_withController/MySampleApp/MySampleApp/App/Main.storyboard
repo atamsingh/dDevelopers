@@ -286,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="1590" y="1753.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="yJo-VQ-zaN">
             <objects>
-                <viewController id="AzY-sB-Dub" sceneMemberID="viewController">
+                <viewController id="AzY-sB-Dub" customClass="LoginViewController" customModule="MySampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="acM-Kp-N2l"/>
                         <viewControllerLayoutGuide type="bottom" id="KJY-3Y-1K2"/>
@@ -337,7 +337,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="JPN-bR-H0W" kind="showDetail" id="oom-vD-HkI"/>
+                                    <action selector="loginTry:" destination="AzY-sB-Dub" eventType="touchUpInside" id="L4K-fK-UZU"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="TT_whiteLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fgS-su-cEt">
@@ -429,6 +429,14 @@
                             <constraint firstItem="wwU-ck-WJH" firstAttribute="top" secondItem="KsO-zP-fB4" secondAttribute="bottom" constant="10" id="ydD-ET-CQP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginBox" destination="Dvo-9f-7cL" id="rMq-NX-g49"/>
+                        <outlet property="loginButton" destination="iQU-tA-ZqG" id="lMC-83-Vt0"/>
+                        <outlet property="passwordBox" destination="wwU-ck-WJH" id="hmr-b1-w18"/>
+                        <outlet property="rememberMeSwitch" destination="REp-2J-xu8" id="C8z-2Q-fke"/>
+                        <outlet property="signUpButton" destination="Upm-By-HAO" id="HP1-4L-33E"/>
+                        <segue destination="JPN-bR-H0W" kind="showDetail" identifier="toMain" id="EyH-7X-Al9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdW-df-hEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1351,6 +1359,6 @@
         <image name="UserIdentityIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1eP-DB-IgL"/>
+        <segue reference="EyH-7X-Al9"/>
     </inferredMetricsTieBreakers>
 </document>
