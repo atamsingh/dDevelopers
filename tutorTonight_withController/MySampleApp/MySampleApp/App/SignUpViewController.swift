@@ -20,7 +20,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     
-    
     // CALL AWS GIVEN JSON
     @IBAction func signUpButtonPress(sender: AnyObject) {
         

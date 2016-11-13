@@ -11,11 +11,21 @@ import UIKit
 import AWSMobileHubHelper
 
 class LoginViewController: UIViewController {
+    
     @IBOutlet weak var loginBox: UITextField!
     @IBOutlet weak var passwordBox: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var rememberMeSwitch: UISwitch!
+    
+    struct myGlobals {
+        static var globalUserName = ""
+        static var globalUserID = ""
+        static var globalFirstName = ""
+        static var globalLastName = ""
+        static var globalEmail = ""
+    }
+    
 
     @IBAction func loginTry(sender: AnyObject) {
         
@@ -40,25 +50,21 @@ class LoginViewController: UIViewController {
             print("json error: \(error.localizedDescription)")
             return
         }
-        print("Json Input: \(jsonInput)")
+        print("AWS JSON REQUEST: \(jsonInput)")
         
         
         
         AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
             if let result = result {
-                dispatch_sync(dispatch_get_main_queue(), {
+                dispatch_async(dispatch_get_main_queue(), {
                     
                     let NSjsonStr = result as! NSString;
                     let NSdataStr = NSjsonStr.dataUsingEncoding(NSUTF8StringEncoding)!;
                     do {
                         let jsonArray: NSDictionary = try NSJSONSerialization.JSONObjectWithData(NSdataStr, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                         
-                        //                        print("jsonArray: \(jsonArray)")
-                        
                         let status = jsonArray["status"]! as! String
                         let info = jsonArray["info"]!
-                        
-                        
                         
                         if status == "fail" {
                             // FAILED LOGIN
@@ -73,33 +79,24 @@ class LoginViewController: UIViewController {
                             
                         } else {
                             // LOGIN SUCCESSFUL
-                            let userID = info["userID"] as String!
                             
-                            // save user information to global variables
-//                            myGlobals.globalUserName = userName
-//                            myGlobals.globalUserID = info["userID"] as String!
-//                            myGlobals.globalFirstName = info["firstName"] as String!
-//                            myGlobals.globalLastName = info["lastName"] as String!
-//                            myGlobals.globalFullName = (info["firstName"] as String!) + (info["lastName"] as String!
-//                            myGlobals.globalEmail = info["email"] as String!
-                            
-                            
+                            // global variables
+                            myGlobals.globalUserName = userName
+                            myGlobals.globalUserID = info["userID"] as String!
+                            myGlobals.globalFirstName = info["firstName"] as String!
+                            myGlobals.globalLastName = info["lastName"] as String!
+                            myGlobals.globalEmail = info["email"] as String!
                             
                             // next screen
                             self.performSegueWithIdentifier("toMain", sender: nil)
-                            
                         }
                     } catch {
                         print("Error: \(error)")
                     }
                     
-                    
                 })
             }
-            
-            print("after async")
-            
-            
+
             var errorMessage: String
             if let error = error {
                 if let cloudUserInfo = error.userInfo as? [String: AnyObject],
