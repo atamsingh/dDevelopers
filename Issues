@@ -1,6 +1,7 @@
 SUNNY
 - super view did load function on settings controller populates twice
 - Notification checkmark should be a toggle switch
+- Add confirmation of password on sign up
 
 COREY
 - storing archived data for the persistent userID needs to be acheived
