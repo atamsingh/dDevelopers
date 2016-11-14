@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571FA8181DD90FFE00B822DC /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571FA8171DD90FFE00B822DC /* SearchController.swift */; };
+		8886AAB51DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AAB41DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift */; };
 		88D3333C1DD5046F0069ABF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3333B1DD5046F0069ABF0 /* HomeViewController.swift */; };
 		88D3333F1DD50B040069ABF0 /* previousAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3333E1DD50B040069ABF0 /* previousAppTableViewCell.swift */; };
 		88D333421DD50F8E0069ABF0 /* LessonArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D333411DD50F8E0069ABF0 /* LessonArray.swift */; };
@@ -141,6 +143,8 @@
 		1DD70E29F0353E3C00000000 /* DemoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DemoFeature.swift; path = MySampleApp/Demo/DemoFeature.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29FD4D584200000000 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MySampleApp/App/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		1DD70E29FF0A325000000000 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = MySampleApp/App/MainViewController.swift; sourceTree = SOURCE_ROOT; };
+		571FA8171DD90FFE00B822DC /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = SOURCE_ROOT; };
+		8886AAB41DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = upcomingAppTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		88D3333B1DD5046F0069ABF0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		88D3333E1DD50B040069ABF0 /* previousAppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = previousAppTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		88D333411DD50F8E0069ABF0 /* LessonArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonArray.swift; sourceTree = SOURCE_ROOT; };
@@ -192,6 +196,7 @@
 				88D3334D1DD53BF60069ABF0 /* LearnViewController.swift */,
 				88D3334F1DD53F480069ABF0 /* AfterRequestViewController.swift */,
 				88D333431DD51A080069ABF0 /* Appointments.json */,
+				571FA8171DD90FFE00B822DC /* SearchController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				88D3333E1DD50B040069ABF0 /* previousAppTableViewCell.swift */,
+				8886AAB41DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -551,7 +557,9 @@
 				E7A30F043ED111E000000000 /* AppAnalyticsViewController.swift in Sources */,
 				88D3334A1DD5228B0069ABF0 /* SwiftyJSON.swift in Sources */,
 				E7A30F04E10EB82700000000 /* UserIdentityViewController.swift in Sources */,
+				571FA8181DD90FFE00B822DC /* SearchController.swift in Sources */,
 				E7A30F041973803800000000 /* AWSMobileClient.swift in Sources */,
+				8886AAB51DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

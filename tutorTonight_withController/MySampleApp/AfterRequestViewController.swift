@@ -2,7 +2,7 @@
 //  AfterRequestViewController.swift
 //  MySampleApp
 //
-//  Created by Arzaan Irani on 2016-11-10.
+//  
 //
 //
 
@@ -16,6 +16,9 @@ class AfterRequestViewController: UIViewController {
     @IBAction func CancelAction(sender: AnyObject) {
         
         // Show Alert Message
+        
+
+        
         
         let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to \n cancel the request?You will be \n charged a non refundable fee \n of $5.00 CAD if the request \n has already been accepted by a tutor", preferredStyle: .Alert)
         
