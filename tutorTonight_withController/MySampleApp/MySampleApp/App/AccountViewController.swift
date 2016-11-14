@@ -24,9 +24,7 @@ class AccountViewController: UIViewController {
 //    }
 
     @IBOutlet weak var txt1: UITextField!
-    
     @IBOutlet weak var txt2: UITextField!
-    
     @IBOutlet weak var txt3: UITextField!
     
     override func viewDidLoad() {

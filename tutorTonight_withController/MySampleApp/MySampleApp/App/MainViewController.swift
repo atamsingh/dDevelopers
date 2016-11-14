@@ -144,8 +144,6 @@ class MainViewController: UITableViewController {
             })
         }
     }
-    
-    
 }
 
 class FeatureDescriptionViewController: UIViewController {
