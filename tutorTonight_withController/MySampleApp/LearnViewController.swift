@@ -2,15 +2,17 @@
 //  LearnViewController.swift
 //  MySampleApp
 //
-//  
+//  Created by Arzaan Irani & Corey Cougle on 2016-11-16.
 //
 //
 
 import UIKit
+import UIKit
+import AWSMobileHubHelper
 
 
 class LearnViewController: UIViewController {
-
+    
     @IBOutlet weak var SearchField: UITextField!
     @IBOutlet weak var FromDate: UITextField!
     @IBOutlet weak var ToDate: UITextField!
@@ -23,17 +25,87 @@ class LearnViewController: UIViewController {
     @IBOutlet weak var ToTime: UILabel!
     
     
- 
+    
     var i = 0
     var Lessons = [String]()
     
     @IBAction func RequestAction(sender: AnyObject) {
         
+        let getCourses: String = "{\"callType\"  : \"GET\",\"object\"    : \"COURSES\",\"data\"      : {}}";
+        
+        let functionName = "mainController";
+        let jsonInput = getCourses.makeJsonable()
+        let jsonData = jsonInput.dataUsingEncoding(NSUTF8StringEncoding)!
+        var parameters: [String: AnyObject]
+        do {
+            let anyObj = try NSJSONSerialization.JSONObjectWithData(jsonData, options: []) as! [String: AnyObject]
+            parameters = anyObj
+        } catch let error as NSError {
+            print("json error: \(error.localizedDescription)")
+            return
+        }
+        print("AWS JSON REQUEST: \(jsonInput)")
+        
+        AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
+            if let result = result {
+                //RESULT is always "{\"status\":\"pass\",\"info\":{\"school\":\"Carleton University\",\"courses\":[{\"1\":\"COMP1001\"},{\"2\":\"COMP1005\"},{\"3\":\"COMP2001\"},{\"4\":\"COMP3001\"},{\"5\":\"HIST1001\"}]}}"
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    let NSjsonStr = result as! NSString;
+                    let NSdataStr = NSjsonStr.dataUsingEncoding(NSUTF8StringEncoding)!;
+                    do {
+                        let jsonArray: NSDictionary = try NSJSONSerialization.JSONObjectWithData(NSdataStr, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                        
+                        let status = jsonArray["status"]! as! String
+                        let info = jsonArray["info"]!
+                        
+                        //WE NEED TO GET NEXT LEVEL, CAN WE REMOVE THE "[]" IN LAMBDA?
+                        
+                        if status == "fail" {
+                            
+                            let alert = UIAlertController(title: "Alert", message: "The Course You've Entered Does Not Exist", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        } else {
+                            // LOGIN SUCCESSFUL
+                            
+                            //Now we want to CREATE_SESSION with userID, SearchField.text!
+                            //But for now we print
+                            print("AWS Response info: \(info)")
+                            //let courses = info["courses"]!
+                            //print("AWS Response courses: \(courses)")
+                            
+                            
+                            
+                        }
+                    } catch {
+                        print("Error: \(error)")
+                    }
+                    
+                })
+            }
+            
+            var errorMessage: String
+            if let error = error {
+                if let cloudUserInfo = error.userInfo as? [String: AnyObject],
+                    cloudMessage = cloudUserInfo["errorMessage"] as? String {
+                    errorMessage = "Error: \(cloudMessage)"
+                } else {
+                    errorMessage = "Error occurred in invoking the Lambda Function. No error message found."
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Error occurred in invoking Lambda Function: \(error)")
+                    //Do something with error message
+                    let alertView = UIAlertController(title: NSLocalizedString("Error", comment: "Title bar for error alert."), message: error.localizedDescription, preferredStyle: .Alert)
+                    alertView.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: "Button on alert dialog."), style: .Default, handler: nil))
+                    self.presentViewController(alertView, animated: true, completion: nil)
+                })
+            }
+        })
         
         
-        SearchJSON()
         
- 
         
     }
     
@@ -50,7 +122,7 @@ class LearnViewController: UIViewController {
         
         
         CalendarDatePicker.hidden = false
-
+        
         
     }
     
@@ -58,150 +130,41 @@ class LearnViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         
         
         
         SetFieldsANDButtons()
-   
+        
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    
-    func SearchJSON() {
-        
-        
-        
-        
-        
-        let path: String = NSBundle.mainBundle().pathForResource("Appointments", ofType: "json") as String!
-        
-        
-        let data = NSData(contentsOfFile: path) as NSData!
-        
-        
-        let readableJSON = JSON(data: data, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        
-        
-        
-        while readableJSON["\(i)"] != nil {
-            
-            
-            let LessonsResult = LessonData(Stars: readableJSON["\(i)"]["stars"].string!, Price: readableJSON["\(i)"]["price"].string!, UserName: readableJSON["\(i)"]["user"].string!, CourseName: readableJSON["\(i)"]["course_name"].string!, Date: readableJSON["\(i)"]["date"].string!, FromTime: readableJSON["\(i)"]["from_time"].string!, ToTime: readableJSON["\(i)"]["to_time"].string!)
-            
-            
-            Lessons.append(LessonsResult.CourseName)
-            
-            
-            i += 1
-        }
-        
-        
-        if Lessons.contains("\(SearchField.text!)") {
-        
-        
-            
-            
-            let alert = UIAlertController(title: "1 hour", message: "This session is going to cost \(CostLabel.text!) \n Are you sure you want to proceed?", preferredStyle: .Alert)
-            
-            
-            
-            
-            
-            alert.addAction(UIAlertAction(title: "YES", style: .Default, handler: { action in
-                switch action.style{
-                    
-                case .Default:
-                    
-                    //self.performSegueWithIdentifier("cancel", sender: self)
-                    
-                    _ = self.tabBarController?.selectedIndex = 0
-                    
-                    
-                case .Cancel:
-                    print("cancel")
-                    
-                case .Destructive:
-                    print("destructive")
-                }
-            }))
-            
-            
-            
-            alert.addAction(UIAlertAction(title: "NO", style: .Cancel, handler: { (action: UIAlertAction!) in
-                
-                alert .dismissViewControllerAnimated(true, completion: nil)
-                
-                
-            }))
-            
-            
-            User_Name = "Path Morin"
-            Course_Name = "\(SearchField.text!)"
-            Course_Date =  "\(FromDate.text!)"
-            From = "\(FromTime.text!)"
-            To = "\(ToTime.text!)"
-            UpcomingPrice = "\(CostLabel.text!)"
-            
-            
-            
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        
-        
-        }else {
-        
-            
-
-            
-            let alert = UIAlertController(title: "Alert", message: "The Course You've Entered Does Not Exist", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-
-        
-        }
-        
-        
-        
-        
-    }
-    
     func SetFieldsANDButtons() {
-    
+        
         self.hideKeyboardWhenTappedAround()
         
         
-    
+        
         CalendarDatePicker.hidden = true
         
         LocationField.layer.borderWidth = 3.0
         SearchField.layer.borderWidth = 3.0
         FromDate.layer.borderWidth = 3.0
         ToDate.layer.borderWidth = 3.0
-
-        
-        
-        
-        
-        
         
         CalendarDatePicker.addTarget(self, action: #selector(LearnViewController.dateValueChanged), forControlEvents: UIControlEvents.ValueChanged)
-    
-    
+        
+        
     }
-
+    
     
     
     
@@ -229,6 +192,13 @@ class LearnViewController: UIViewController {
         self.view.endEditing(true)
         return false
     }
+    
+    
+}
 
-
+extension String {
+    private func makeJsonable() -> String {
+        let resultComponents: NSArray = self.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        return resultComponents.componentsJoinedByString("")
+    }
 }

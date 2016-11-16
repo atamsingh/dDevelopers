@@ -1,0 +1,20 @@
+
+
+"{\"status\":\"pass\",
+\"info\":
+{\"school\":\"Carleton University\",
+    \"courses\":
+    [{\"1\":\"COMP1001\"},
+     {\"2\":\"COMP1005\"},
+     {\"3\":\"COMP2001\"},
+     {\"4\":\"COMP3001\"},
+     {\"5\":\"HIST1001\"}]
+     }
+}"
+
+
+
+
+ let LessonsResult = LessonData(Stars: readableJSON["\(i)"]["status"].string!, Price: readableJSON["\(i)"]["price"].string!, UserName: readableJSON["\(i)"]["user"].string!, CourseName: readableJSON["\(i)"]["course_name"].string!, Date: readableJSON["\(i)"]["date"].string!, FromTime: readableJSON["\(i)"]["from_time"].string!, ToTime: readableJSON["\(i)"]["to_time"].string!)
+
+     let LessonsResult = LessonData(Status: readableJSON["\(i)"])
