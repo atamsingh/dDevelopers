@@ -18,9 +18,10 @@ import AWSMobileHubHelper
 class SettingsCoursesViewController: UITableViewController {
     
     var demoFeatures = ["one", "two"]
+    var courses = [String]()
+    
     var willEnterForegroundObserver: AnyObject!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
@@ -28,6 +29,64 @@ class SettingsCoursesViewController: UITableViewController {
         willEnterForegroundObserver = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationWillEnterForegroundNotification, object: nil, queue: NSOperationQueue.currentQueue()) { _ in
             self.updateTheme()
         }
+        
+        // SEND REQUEST FOR COURSES
+        let inputData: String = "{\"callType\"  : \"GET\",\"object\"    : \"COURSES\",\"data\"      : {}}"
+        let functionName = "mainController"
+        let jsonInput = inputData.makeJsonable()
+        let jsonData = jsonInput.dataUsingEncoding(NSUTF8StringEncoding)!
+        var parameters: [String: AnyObject]
+        do {
+            let anyObj = try NSJSONSerialization.JSONObjectWithData(jsonData, options: []) as! [String: AnyObject]
+            parameters = anyObj
+        } catch let error as NSError {
+            print("json error: \(error.localizedDescription)")
+            return
+        }
+        print("AWS JSON REQUEST: \(jsonInput)")
+        
+        
+        AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
+            if let result = result {
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    let NSjsonStr = result as! NSString;
+                    let NSdataStr = NSjsonStr.dataUsingEncoding(NSUTF8StringEncoding)!;
+                    let readableJSON = JSON(data: NSdataStr, options: NSJSONReadingOptions.MutableContainers, error: nil)
+                    print (readableJSON)
+                    print (readableJSON["status"])
+                    print (readableJSON["info"])
+                    
+                    print (readableJSON["info"]["school"])
+                    print (readableJSON["info"]["courses"])
+//                    print (readableJSON["info"]["courses"][0])
+                    print (readableJSON["info"]["courses"][1]["2"])
+                    print (readableJSON["info"]["courses"][4]["5"])
+                    
+                    
+                    let numCourses = readableJSON["info"]["courses"].count
+
+                })
+            }
+        
+        
+            var errorMessage: String
+            if let error = error {
+                if let cloudUserInfo = error.userInfo as? [String: AnyObject],
+                    cloudMessage = cloudUserInfo["errorMessage"] as? String {
+                    errorMessage = "Error: \(cloudMessage)"
+                } else {
+                    errorMessage = "Error occurred in invoking the Lambda Function. No error message found."
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Error occurred in invoking Lambda Function: \(error)")
+                    //Do something with error message
+                    let alertView = UIAlertController(title: NSLocalizedString("Error", comment: "Title bar for error alert."), message: error.localizedDescription, preferredStyle: .Alert)
+                    alertView.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: "Button on alert dialog."), style: .Default, handler: nil))
+                    self.presentViewController(alertView, animated: true, completion: nil)
+                })
+            }
+        })
     }
     
     deinit {
@@ -35,24 +94,21 @@ class SettingsCoursesViewController: UITableViewController {
     }
     
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainViewCell")!
-//        let demoFeature = demoFeatures[indexPath.row]
-//        cell.imageView!.image = UIImage(named: demoFeature.icon)
-//        cell.textLabel!.text = demoFeature.displayName
-//        cell.detailTextLabel!.text = demoFeature.detailText
+        
+        
+        
+        
         cell.textLabel!.text = demoFeatures[indexPath.row]
         return cell
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return demoFeatures.count
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
     
     func updateTheme() {
         let settings = ColorThemeSettings.sharedInstance
@@ -69,5 +125,12 @@ class SettingsCoursesViewController: UITableViewController {
                 self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: titleTextColor]
             })
         }
+    }
+}
+
+extension String {
+    private func makeJsonable() -> String {
+        let resultComponents: NSArray = self.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        return resultComponents.componentsJoinedByString("")
     }
 }
