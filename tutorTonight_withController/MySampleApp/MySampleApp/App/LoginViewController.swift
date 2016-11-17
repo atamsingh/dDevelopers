@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
         static var globalFirstName = ""
         static var globalLastName = ""
         static var globalEmail = ""
+//        static var courseList = [String]()
     }
     
 
@@ -36,6 +37,7 @@ class LoginViewController: UIViewController {
             return
         }
         
+        // SEND JSON
         let userName = loginBox.text!
         let password = passwordBox.text!
         let inputData: String = "{\"callType\"  : \"GET\",\"object\"    : \"USERS\",\"data\"      : {\"username\"  : \"\(userName)\",\"password\"  : \"\(password)\"}}"
@@ -53,7 +55,7 @@ class LoginViewController: UIViewController {
         print("AWS JSON REQUEST: \(jsonInput)")
         
         
-        
+        // RECEIVE JSON
         AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
             if let result = result {
                 dispatch_async(dispatch_get_main_queue(), {

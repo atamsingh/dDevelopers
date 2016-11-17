@@ -17,8 +17,10 @@ import AWSMobileHubHelper
 
 class SettingsCoursesViewController: UITableViewController {
     
-    var demoFeatures = ["one", "two"]
-    var courses = [String]()
+//    var courseList = ["one", "two"]
+    var courseList = [String]()
+    
+    
     
     var willEnterForegroundObserver: AnyObject!
 
@@ -30,7 +32,7 @@ class SettingsCoursesViewController: UITableViewController {
             self.updateTheme()
         }
         
-        // SEND REQUEST FOR COURSES
+        // SEND JSON
         let inputData: String = "{\"callType\"  : \"GET\",\"object\"    : \"COURSES\",\"data\"      : {}}"
         let functionName = "mainController"
         let jsonInput = inputData.makeJsonable()
@@ -46,32 +48,39 @@ class SettingsCoursesViewController: UITableViewController {
         print("AWS JSON REQUEST: \(jsonInput)")
         
         
+        
+        // RECEIVE JSON BACK
         AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
             if let result = result {
-                dispatch_async(dispatch_get_main_queue(), {
+                dispatch_sync(dispatch_get_main_queue(), {
                     
                     let NSjsonStr = result as! NSString;
                     let NSdataStr = NSjsonStr.dataUsingEncoding(NSUTF8StringEncoding)!;
                     let readableJSON = JSON(data: NSdataStr, options: NSJSONReadingOptions.MutableContainers, error: nil)
                     print (readableJSON)
-                    print (readableJSON["status"])
-                    print (readableJSON["info"])
-                    
-                    print (readableJSON["info"]["school"])
-                    print (readableJSON["info"]["courses"])
+//                    print (readableJSON["status"])
+//                    print (readableJSON["info"])
+//                    print (readableJSON["info"]["courses"])
 //                    print (readableJSON["info"]["courses"][0])
-                    print (readableJSON["info"]["courses"][1]["2"])
-                    print (readableJSON["info"]["courses"][4]["5"])
-                    
+//                    print (readableJSON["info"]["courses"][1]["2"])
+
                     
                     let numCourses = readableJSON["info"]["courses"].count
-
+                    
+                    var i=1
+                    for result in readableJSON["info"]["courses"].arrayValue {
+                        let courseName = result[String(i)].stringValue
+                        print(courseName)
+                        self.courseList.append(courseName)
+                        i = i+1
+                    }
+                    print(self.courseList)
                 })
             }
         
-        
-            var errorMessage: String
+            
             if let error = error {
+                var errorMessage: String
                 if let cloudUserInfo = error.userInfo as? [String: AnyObject],
                     cloudMessage = cloudUserInfo["errorMessage"] as? String {
                     errorMessage = "Error: \(cloudMessage)"
@@ -86,7 +95,11 @@ class SettingsCoursesViewController: UITableViewController {
                     self.presentViewController(alertView, animated: true, completion: nil)
                 })
             }
+            
+            
         })
+        
+        
     }
     
     deinit {
@@ -96,17 +109,12 @@ class SettingsCoursesViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainViewCell")!
-        
-        
-        
-        
-        cell.textLabel!.text = demoFeatures[indexPath.row]
+        cell.textLabel!.text = courseList[indexPath.row]
         return cell
-        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return demoFeatures.count
+        return courseList.count
     }
     
     
