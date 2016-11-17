@@ -59,10 +59,10 @@ class SignUpViewController: UIViewController {
         let email = emailBox.text!
         let password = passwordBox.text!
         let studentStatus = true
-        let tutorStatus = false
+        let tutorStatus = true
         
 
-        let inputData: String = "{\"callType\"  : \"PUT\",\"object\"    : \"USERS\",\"data\"      : {\"username\"  : \"\(email)\",\"password\"  : \"\(password)\",\"email\"  : \"\(email)\",\"firstName\"  : \"\(firstName)\",\"lastName\"  : \"\(lastName)\",\"studentStatus\"  : true, \"tutorStatus\"  : false}}"
+        let inputData: String = "{\"callType\"  : \"PUT\",\"object\"    : \"USERS\",\"data\"      : {\"username\"  : \"\(email)\",\"password\"  : \"\(password)\",\"email\"  : \"\(email)\",\"firstName\"  : \"\(firstName)\",\"lastName\"  : \"\(lastName)\",\"studentStatus\"  : \"\(studentStatus)\", \"tutorStatus\"  : \"\(tutorStatus)\"}}"
         let functionName = "mainController"
         let jsonInput = inputData.makeJsonable()
         let jsonData = jsonInput.dataUsingEncoding(NSUTF8StringEncoding)!
@@ -131,8 +131,9 @@ class SignUpViewController: UIViewController {
             print("after async")
             
             
-            var errorMessage: String
+            
             if let error = error {
+                var errorMessage: String
                 if let cloudUserInfo = error.userInfo as? [String: AnyObject],
                     cloudMessage = cloudUserInfo["errorMessage"] as? String {
                     errorMessage = "Error: \(cloudMessage)"

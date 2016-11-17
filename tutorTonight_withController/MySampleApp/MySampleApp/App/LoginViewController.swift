@@ -99,8 +99,9 @@ class LoginViewController: UIViewController {
                 })
             }
 
-            var errorMessage: String
+            
             if let error = error {
+                var errorMessage: String
                 if let cloudUserInfo = error.userInfo as? [String: AnyObject],
                     cloudMessage = cloudUserInfo["errorMessage"] as? String {
                     errorMessage = "Error: \(cloudMessage)"

@@ -17,11 +17,7 @@ import AWSMobileHubHelper
 
 class SettingsCoursesViewController: UITableViewController {
     
-//    var courseList = ["one", "two"]
     var courseList = [String]()
-    
-    
-    
     var willEnterForegroundObserver: AnyObject!
 
     override func viewDidLoad() {
@@ -32,7 +28,7 @@ class SettingsCoursesViewController: UITableViewController {
             self.updateTheme()
         }
         
-        // SEND JSON
+        // SEND JSON REQUEST FOR COURSES
         let inputData: String = "{\"callType\"  : \"GET\",\"object\"    : \"COURSES\",\"data\"      : {}}"
         let functionName = "mainController"
         let jsonInput = inputData.makeJsonable()
@@ -48,11 +44,10 @@ class SettingsCoursesViewController: UITableViewController {
         print("AWS JSON REQUEST: \(jsonInput)")
         
         
-        
-        // RECEIVE JSON BACK
+        // RECEIVE JSON
         AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
             if let result = result {
-                dispatch_sync(dispatch_get_main_queue(), {
+                dispatch_async(dispatch_get_main_queue(), {
                     
                     let NSjsonStr = result as! NSString;
                     let NSdataStr = NSjsonStr.dataUsingEncoding(NSUTF8StringEncoding)!;
@@ -63,22 +58,21 @@ class SettingsCoursesViewController: UITableViewController {
 //                    print (readableJSON["info"]["courses"])
 //                    print (readableJSON["info"]["courses"][0])
 //                    print (readableJSON["info"]["courses"][1]["2"])
-
-                    
-                    let numCourses = readableJSON["info"]["courses"].count
+//                    let numCourses = readableJSON["info"]["courses"].count
                     
                     var i=1
                     for result in readableJSON["info"]["courses"].arrayValue {
                         let courseName = result[String(i)].stringValue
+//                        print (readableJSON["info"]["courses"][1]["2"])
                         print(courseName)
                         self.courseList.append(courseName)
                         i = i+1
                     }
                     print(self.courseList)
+                    self.tableView.reloadData()
                 })
             }
         
-            
             if let error = error {
                 var errorMessage: String
                 if let cloudUserInfo = error.userInfo as? [String: AnyObject],
