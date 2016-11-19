@@ -22,7 +22,6 @@ class SignUpViewController: UIViewController {
     
     // CALL AWS GIVEN JSON
     @IBAction func signUpButtonPress(sender: AnyObject) {
-        
 
         if firstNameBox.text!.characters.count < 2  ||
             lastNameBox.text!.characters.count < 2  ||
@@ -35,8 +34,7 @@ class SignUpViewController: UIViewController {
             alert.addButtonWithTitle("Ok")
             alert.show()
         }
-        
-        
+
         /* TEST
          {
              "callType"  : "PUT",
@@ -52,7 +50,6 @@ class SignUpViewController: UIViewController {
              }
          }
          */
-        
         
         let firstName = firstNameBox.text!
         let lastName = lastNameBox.text!
@@ -82,7 +79,6 @@ class SignUpViewController: UIViewController {
         AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
             if let result = result {
                 dispatch_sync(dispatch_get_main_queue(), {
-                    
                     
                     //RETREIVE JSON OBJECT FROM AWS
                     let NSjsonStr = result as! NSString;
@@ -118,7 +114,6 @@ class SignUpViewController: UIViewController {
 //                            self.performSegueWithIdentifier("toMain", sender: nil)
                             self.performSegueWithIdentifier("signup2main", sender: nil)
                             
-                            
                         }
                     } catch {
                         print("Error: \(error)")
@@ -129,7 +124,6 @@ class SignUpViewController: UIViewController {
             }
             
             print("after async")
-            
             
             
             if let error = error {
@@ -152,7 +146,6 @@ class SignUpViewController: UIViewController {
         
     }
 }
-
 
 extension String {
     private func makeJsonable() -> String {

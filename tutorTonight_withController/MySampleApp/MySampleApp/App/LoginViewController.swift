@@ -24,7 +24,6 @@ class LoginViewController: UIViewController {
         static var globalFirstName = ""
         static var globalLastName = ""
         static var globalEmail = ""
-//        static var courseList = [String]()
     }
     
 

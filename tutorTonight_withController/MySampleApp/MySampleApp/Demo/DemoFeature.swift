@@ -18,15 +18,13 @@ class DemoFeature: NSObject {
     var displayName: String
     var detailText: String
     var icon: String
-    var seg: String
-//    var storyboard: String
+    var storyboard: String
     
-    init(name: String, detail: String, icon: String, seg: String /*storyboard: String(*/) {
+    init(name: String, detail: String, icon: String, storyboard: String) {
         self.displayName = name
         self.detailText = detail
         self.icon = icon
-//        self.storyboard = storyboard
-        self.seg = seg
+        self.storyboard = storyboard
         super.init()
     }
 }

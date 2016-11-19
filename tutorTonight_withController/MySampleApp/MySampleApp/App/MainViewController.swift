@@ -16,7 +16,7 @@ import AWSMobileHubHelper
 
 class MainViewController: UITableViewController {
     
-    var demoFeatures: [DemoFeature] = []
+    var settingsScreen: [SettingsObject] = []
     var willEnterForegroundObserver: AnyObject!
     
     // MARK: - View lifecycle
@@ -24,7 +24,8 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         // You need to call `- updateTheme` here in case the sign-in happens before `- viewWillAppear:` is called.
         updateTheme()
@@ -33,7 +34,7 @@ class MainViewController: UITableViewController {
         }
 
         
-        var demoFeature = DemoFeature.init(
+        var demoFeature = SettingsObject.init(
             name: NSLocalizedString("Account Details",
                 comment: "View your user credentials."),
             detail: NSLocalizedString("Enable user login with popular 3rd party providers.",
@@ -42,9 +43,9 @@ class MainViewController: UITableViewController {
             seg: "accountSeg"
         )
         
-        demoFeatures.append(demoFeature)
+        settingsScreen.append(demoFeature)
         
-        demoFeature = DemoFeature.init(
+        demoFeature = SettingsObject.init(
             name: NSLocalizedString("Push Notifications",
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("Send individual or group push notifications to your apps.",
@@ -53,9 +54,9 @@ class MainViewController: UITableViewController {
             seg: "pushSeg"
         )
         
-        demoFeatures.append(demoFeature)
+        settingsScreen.append(demoFeature)
         
-        demoFeature = DemoFeature.init(
+        demoFeature = SettingsObject.init(
             name: NSLocalizedString("Payment ",
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("Store and distribute media assets and other files via global content delivery network.",
@@ -64,9 +65,9 @@ class MainViewController: UITableViewController {
             seg: "paymentSeg"
         )
         
-        demoFeatures.append(demoFeature)
+        settingsScreen.append(demoFeature)
         
-        demoFeature = DemoFeature.init(
+        demoFeature = SettingsObject.init(
             name: NSLocalizedString("Transcript",
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("View your verified courses.",
@@ -75,7 +76,7 @@ class MainViewController: UITableViewController {
             seg: "courseSeg"
         )
         
-        demoFeatures.append(demoFeature)
+        settingsScreen.append(demoFeature)
         
 //        demoFeature = DemoFeature.init(
 //            name: NSLocalizedString("App Analytics",
@@ -86,7 +87,7 @@ class MainViewController: UITableViewController {
 //        
 //        demoFeatures.append(demoFeature)
         
-        demoFeature = DemoFeature.init(
+        demoFeature = SettingsObject.init(
             name: NSLocalizedString("About Us",
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("App version, changelog, etc.",
@@ -95,7 +96,7 @@ class MainViewController: UITableViewController {
             seg: "aboutSeg"
         )
         
-        demoFeatures.append(demoFeature)
+        settingsScreen.append(demoFeature)
 
     }
     
@@ -108,7 +109,7 @@ class MainViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainViewCell")!
-        let demoFeature = demoFeatures[indexPath.row]
+        let demoFeature = settingsScreen[indexPath.row]
         cell.imageView!.image = UIImage(named: demoFeature.icon)
         cell.textLabel!.text = demoFeature.displayName
         cell.detailTextLabel!.text = demoFeature.detailText
@@ -116,12 +117,12 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return demoFeatures.count
+        return settingsScreen.count
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let demoFeature = demoFeatures[indexPath.row]
+        let demoFeature = settingsScreen[indexPath.row]
 //        let storyboard = UIStoryboard(name: demoFeature.storyboard, bundle: nil)
 //        let viewController = storyboard.instantiateViewControllerWithIdentifier(demoFeature.storyboard)
 //        self.navigationController!.pushViewController(viewController, animated: true)

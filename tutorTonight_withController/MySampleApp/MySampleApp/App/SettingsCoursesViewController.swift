@@ -29,7 +29,7 @@ class SettingsCoursesViewController: UITableViewController {
         }
         
         // SEND JSON REQUEST FOR COURSES
-        let inputData: String = "{\"callType\"  : \"GET\",\"object\"    : \"COURSES\",\"data\"      : {}}"
+        let inputData: String = "{\"callType\":\"GET\",\"object\":\"COURSES\",\"data\":{}}"
         let functionName = "mainController"
         let jsonInput = inputData.makeJsonable()
         let jsonData = jsonInput.dataUsingEncoding(NSUTF8StringEncoding)!
@@ -64,7 +64,7 @@ class SettingsCoursesViewController: UITableViewController {
                     for result in readableJSON["info"]["courses"].arrayValue {
                         let courseName = result[String(i)].stringValue
 //                        print (readableJSON["info"]["courses"][1]["2"])
-                        print(courseName)
+//                        print(courseName)
                         self.courseList.append(courseName)
                         i = i+1
                     }
