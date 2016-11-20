@@ -1,0 +1,60 @@
+{
+    "0" : {
+        
+            "id": "1",
+            "stars": "3",
+            "price": "280",
+            "user": "Matthew Hadden",
+            "course_name": "COMP 3001",
+            "date": "Dec 1st, 2016",
+            "from_time": "6:06 PM",
+            "to_time": "7:17 PM"
+        
+    
+    },
+    "1" : {
+    
+            "id": "2",
+            "stars": "4",
+            "price": "380",
+            "user": "Attam Hadden",
+            "course_name": "COMP 4001",
+            "date": "Dec 12th, 2016",
+            "from_time": "7:06 PM",
+            "to_time": "8:06 PM"
+    
+    },
+    "2" : {
+            "id": "3",
+            "stars": "2",
+            "price": "480",
+            "user": "John Doe",
+            "course_name": "COMP 5001",
+            "date": "Dec 6th, 2016",
+            "from_time": "8:06 PM",
+            "to_time": "10:06 PM"
+        
+    },
+    "3" : {
+        "id": "4",
+        "stars": "5",
+        "price": "980",
+        "user": "Atam Doe",
+        "course_name": "COMP 101",
+        "date": "Aug 6th, 2016",
+        "from_time": "2:06 PM",
+        "to_time": "5:06 PM"
+        
+    },
+    "4" : {
+        "id": "5",
+        "stars": "1",
+        "price": "1980",
+        "user": "Arizan",
+        "course_name": "COMP 202",
+        "date": "Aug 16th, 2016",
+        "from_time": "12:06 PM",
+        "to_time": "5:06 PM"
+        
+    }
+}

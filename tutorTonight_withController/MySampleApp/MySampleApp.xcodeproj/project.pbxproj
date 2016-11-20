@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57E6466A1DDD1FE100B9B3A7 /* Courses.json in Resources */ = {isa = PBXBuildFile; fileRef = 57E646691DDD1FE100B9B3A7 /* Courses.json */; };
+		885816D71DDD096000CF770B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885816D31DDD096000CF770B /* AccountViewController.swift */; };
+		885816D81DDD096000CF770B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885816D41DDD096000CF770B /* LoginViewController.swift */; };
+		885816D91DDD096000CF770B /* SettingsCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885816D51DDD096000CF770B /* SettingsCoursesViewController.swift */; };
+		885816DA1DDD096000CF770B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885816D61DDD096000CF770B /* SignUpViewController.swift */; };
+		8886AAB51DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AAB41DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift */; };
+		88D3333C1DD5046F0069ABF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3333B1DD5046F0069ABF0 /* HomeViewController.swift */; };
+		88D3333F1DD50B040069ABF0 /* previousAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3333E1DD50B040069ABF0 /* previousAppTableViewCell.swift */; };
+		88D333421DD50F8E0069ABF0 /* LessonArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D333411DD50F8E0069ABF0 /* LessonArray.swift */; };
+		88D333441DD51A080069ABF0 /* Appointments.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D333431DD51A080069ABF0 /* Appointments.json */; };
+		88D3334A1DD5228B0069ABF0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D333491DD5228B0069ABF0 /* SwiftyJSON.swift */; };
+		88D3334C1DD522F50069ABF0 /* SwiftyJSON.swift in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3334B1DD522F50069ABF0 /* SwiftyJSON.swift */; };
+		88D3334E1DD53BF60069ABF0 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3334D1DD53BF60069ABF0 /* LearnViewController.swift */; };
+		88D333501DD53F480069ABF0 /* AfterRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3334F1DD53F480069ABF0 /* AfterRequestViewController.swift */; };
 		E7A30F04008C68BE00000000 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29E52635A100000000 /* UserSettingsViewController.swift */; };
 		E7A30F040110D0C400000000 /* AWSSNS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E298CC81CA300000000 /* AWSSNS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7A30F040110D0C400000001 /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E298CC81CA300000000 /* AWSSNS.framework */; };
@@ -133,6 +147,20 @@
 		1DD70E29F0353E3C00000000 /* DemoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DemoFeature.swift; path = MySampleApp/Demo/DemoFeature.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29FD4D584200000000 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MySampleApp/App/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		1DD70E29FF0A325000000000 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = MySampleApp/App/MainViewController.swift; sourceTree = SOURCE_ROOT; };
+		57E646691DDD1FE100B9B3A7 /* Courses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Courses.json; sourceTree = SOURCE_ROOT; };
+		885816D31DDD096000CF770B /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = SOURCE_ROOT; };
+		885816D41DDD096000CF770B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		885816D51DDD096000CF770B /* SettingsCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoursesViewController.swift; sourceTree = SOURCE_ROOT; };
+		885816D61DDD096000CF770B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
+		8886AAB41DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = upcomingAppTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		88D3333B1DD5046F0069ABF0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		88D3333E1DD50B040069ABF0 /* previousAppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = previousAppTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		88D333411DD50F8E0069ABF0 /* LessonArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonArray.swift; sourceTree = SOURCE_ROOT; };
+		88D333431DD51A080069ABF0 /* Appointments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Appointments.json; sourceTree = SOURCE_ROOT; };
+		88D333491DD5228B0069ABF0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		88D3334B1DD522F50069ABF0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "../../SwiftyJSON-swift2/Source/SwiftyJSON.swift"; sourceTree = "<group>"; };
+		88D3334D1DD53BF60069ABF0 /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = SOURCE_ROOT; };
+		88D3334F1DD53F480069ABF0 /* AfterRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterRequestViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D3334C1DD522F50069ABF0 /* SwiftyJSON.swift in Frameworks */,
 				E7A30F043D220DC700000000 /* GoogleSymbolUtilities.framework in Frameworks */,
 				E7A30F0468B0C76800000000 /* GoogleAuthUtilities.framework in Frameworks */,
 				E7A30F046DD537CE00000001 /* AWSCognito.framework in Frameworks */,
@@ -168,6 +197,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88D3333A1DD504550069ABF0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				885816D31DDD096000CF770B /* AccountViewController.swift */,
+				885816D41DDD096000CF770B /* LoginViewController.swift */,
+				885816D51DDD096000CF770B /* SettingsCoursesViewController.swift */,
+				885816D61DDD096000CF770B /* SignUpViewController.swift */,
+				88D3333B1DD5046F0069ABF0 /* HomeViewController.swift */,
+				88D3334D1DD53BF60069ABF0 /* LearnViewController.swift */,
+				88D3334F1DD53F480069ABF0 /* AfterRequestViewController.swift */,
+				88D333431DD51A080069ABF0 /* Appointments.json */,
+				57E646691DDD1FE100B9B3A7 /* Courses.json */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		88D3333D1DD50ABC0069ABF0 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				88D3333E1DD50B040069ABF0 /* previousAppTableViewCell.swift */,
+				8886AAB41DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		88D333401DD50F710069ABF0 /* ArrayData */ = {
+			isa = PBXGroup;
+			children = (
+				88D333411DD50F8E0069ABF0 /* LessonArray.swift */,
+			);
+			name = ArrayData;
+			sourceTree = "<group>";
+		};
 		B401C979515A524700000000 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +311,9 @@
 		B401C979D2B106D300000000 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				88D333401DD50F710069ABF0 /* ArrayData */,
+				88D3333D1DD50ABC0069ABF0 /* CustomCells */,
+				88D3333A1DD504550069ABF0 /* ViewControllers */,
 				1DD70E29BB8DBA6400000000 /* AppDelegate.swift */,
 				1DD70E29FD4D584200000000 /* Images.xcassets */,
 				1DD70E2980EDE1B200000000 /* Launch Screen.storyboard */,
@@ -265,6 +330,7 @@
 		B401C979D3983AC200000000 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88D3334B1DD522F50069ABF0 /* SwiftyJSON.swift */,
 				1DD70E29E5ED23DF00000000 /* AWSCognito.framework */,
 				1DD70E2913110D1300000000 /* AWSCore.framework */,
 				1DD70E297509DF8300000000 /* AWSLambda.framework */,
@@ -322,6 +388,7 @@
 		B401C979E26ADCCF00000000 /* mainGroup */ = {
 			isa = PBXGroup;
 			children = (
+				88D333491DD5228B0069ABF0 /* SwiftyJSON.swift */,
 				B401C979D3B10D5500000000 /* Products */,
 				B401C979D3983AC200000000 /* Frameworks */,
 				B401C979E3FC2D7300000000 /* MySampleApp */,
@@ -406,7 +473,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0810;
 			};
 			buildConfigurationList = 218C37090000000000000000 /* Build configuration list for PBXProject "MySampleApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -431,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D333441DD51A080069ABF0 /* Appointments.json in Resources */,
 				E7A30F04FF0EB27400000000 /* SignIn.storyboard in Resources */,
 				E7A30F04714267EB00000000 /* AppAnalytics.storyboard in Resources */,
 				E7A30F0404BE17A200000000 /* Launch Screen.storyboard in Resources */,
@@ -440,6 +508,7 @@
 				E7A30F041BB274AE00000000 /* PushNotification.storyboard in Resources */,
 				E7A30F04CC6DDB8500000000 /* CloudLogic.storyboard in Resources */,
 				E7A30F04E73EC51F00000000 /* UserIdentity.storyboard in Resources */,
+				57E6466A1DDD1FE100B9B3A7 /* Courses.json in Resources */,
 				E7A30F04B563594900000000 /* ContentDelivery.storyboard in Resources */,
 				E7A30F045389E00600000000 /* UserDataStorage.storyboard in Resources */,
 				E7A30F04E5E1F99500000000 /* Main.storyboard in Resources */,
@@ -482,20 +551,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D333421DD50F8E0069ABF0 /* LessonArray.swift in Sources */,
 				E7A30F04F4842F8700000000 /* PushNotificationViewController.swift in Sources */,
+				885816D91DDD096000CF770B /* SettingsCoursesViewController.swift in Sources */,
+				88D333501DD53F480069ABF0 /* AfterRequestViewController.swift in Sources */,
+				885816DA1DDD096000CF770B /* SignUpViewController.swift in Sources */,
+				885816D81DDD096000CF770B /* LoginViewController.swift in Sources */,
 				E7A30F04C5C5579500000000 /* ContentDeliveryViewController.swift in Sources */,
 				E7A30F04396016D900000000 /* UserFilesViewController.swift in Sources */,
 				E7A30F04008C68BE00000000 /* UserSettingsViewController.swift in Sources */,
 				E7A30F04C486504400000000 /* AppDelegate.swift in Sources */,
+				88D3333C1DD5046F0069ABF0 /* HomeViewController.swift in Sources */,
+				88D3334E1DD53BF60069ABF0 /* LearnViewController.swift in Sources */,
 				E7A30F04A2C9CE6F00000000 /* CloudLogicViewController.swift in Sources */,
+				885816D71DDD096000CF770B /* AccountViewController.swift in Sources */,
 				E7A30F041CB48F3500000000 /* UserDataStorageViewController.swift in Sources */,
 				E7A30F047E55C98100000000 /* DemoFeature.swift in Sources */,
 				E7A30F04AE7F3A9200000000 /* ColorThemeSettings.swift in Sources */,
+				88D3333F1DD50B040069ABF0 /* previousAppTableViewCell.swift in Sources */,
 				E7A30F0497F38FCE00000000 /* UtilityFunctions.swift in Sources */,
 				E7A30F04A916313200000000 /* MainViewController.swift in Sources */,
 				E7A30F043ED111E000000000 /* AppAnalyticsViewController.swift in Sources */,
+				88D3334A1DD5228B0069ABF0 /* SwiftyJSON.swift in Sources */,
 				E7A30F04E10EB82700000000 /* UserIdentityViewController.swift in Sources */,
 				E7A30F041973803800000000 /* AWSMobileClient.swift in Sources */,
+				8886AAB51DD8DDED00EDA0CF /* upcomingAppTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,8 +595,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -537,6 +619,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(OTHER_LDFLAGS)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -578,8 +661,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
