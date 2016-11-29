@@ -17,8 +17,11 @@ import AWSMobileHubHelper
 
 class SettingsAccountViewController: UITableViewController {
     
-    var titles = [String]()
-    var details = [String]()
+    var titles = ["First Name", "Last Name", "Email"]
+    var details = [LoginViewController.myGlobals.globalFirstName,
+                   LoginViewController.myGlobals.globalLastName,
+                   LoginViewController.myGlobals.globalEmail]
+                   
     var willEnterForegroundObserver: AnyObject!
     
     override func viewDidLoad() {
@@ -29,32 +32,31 @@ class SettingsAccountViewController: UITableViewController {
             self.updateTheme()
         }
         
-        
-        self.titles.append("First Name")
-        self.titles.append("Last Name")
-        self.titles.append("Email")
-        
-        self.details.append(LoginViewController.myGlobals.globalFirstName)
-        self.details.append(LoginViewController.myGlobals.globalLastName)
-        self.details.append(LoginViewController.myGlobals.globalEmail)
-        
-        self.tableView.reloadData()
+        //THIS WAY WORKS AS WELL! USE THIS METHOD FOR DYNAMIC UPDATING
+//        self.titles.append("First Name")
+//        self.titles.append("Last Name")
+//        self.titles.append("Email")
+//        self.details.append(LoginViewController.myGlobals.globalFirstName)
+//        self.details.append(LoginViewController.myGlobals.globalLastName)
+//        self.details.append(LoginViewController.myGlobals.globalEmail)
+//        self.tableView.reloadData()
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(willEnterForegroundObserver)
     }
     
+    // NUMBER OF CELLS TO POPULATE
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
+    }
     
+    // DETAILS OF EACH CELL
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainViewCell")!
         cell.textLabel!.text = titles[indexPath.row]
         cell.detailTextLabel!.text = details[indexPath.row]
         return cell
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
     }
     
     
@@ -73,12 +75,5 @@ class SettingsAccountViewController: UITableViewController {
                 self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: titleTextColor]
             })
         }
-    }
-}
-
-extension String {
-    private func makeJsonable() -> String {
-        let resultComponents: NSArray = self.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-        return resultComponents.componentsJoinedByString("")
     }
 }
