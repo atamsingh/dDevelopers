@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A34C0FB21DD97DD000A87D1C /* SettingsCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C0FB11DD97DD000A87D1C /* SettingsCoursesViewController.swift */; };
+		A36CD3E81DEE4136002638EC /* SettingsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */; };
 		A3715E3A1DDD2C310050AA39 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3715E391DDD2C310050AA39 /* SwiftyJSON.swift */; };
 		A3759BAD1DD7F06300044E4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3759BAC1DD7F06300044E4B /* LoginViewController.swift */; };
 		A3CA3C091DE0F8FE006C738A /* SettingsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA3C081DE0F8FE006C738A /* SettingsObject.swift */; };
@@ -140,6 +141,7 @@
 		1DD70E29FD4D584200000000 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MySampleApp/App/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		1DD70E29FF0A325000000000 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = MySampleApp/App/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 		A34C0FB11DD97DD000A87D1C /* SettingsCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCoursesViewController.swift; path = MySampleApp/App/SettingsCoursesViewController.swift; sourceTree = SOURCE_ROOT; };
+		A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsAccountViewController.swift; path = MySampleApp/App/SettingsAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		A3715E391DDD2C310050AA39 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = MySampleApp/App/SwiftyJSON.swift; sourceTree = "<group>"; };
 		A3759BAC1DD7F06300044E4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MySampleApp/App/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		A3CA3C081DE0F8FE006C738A /* SettingsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsObject.swift; path = MySampleApp/App/SettingsObject.swift; sourceTree = SOURCE_ROOT; };
@@ -262,6 +264,7 @@
 		B401C979D2B106D300000000 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */,
 				A34C0FB11DD97DD000A87D1C /* SettingsCoursesViewController.swift */,
 				A3F26B7D1DD8F1BF00625261 /* AccountViewController.swift */,
 				A3F26B751DD7F63700625261 /* SignUpViewController.swift */,
@@ -507,6 +510,7 @@
 				E7A30F04008C68BE00000000 /* UserSettingsViewController.swift in Sources */,
 				E7A30F04C486504400000000 /* AppDelegate.swift in Sources */,
 				E7A30F04A2C9CE6F00000000 /* CloudLogicViewController.swift in Sources */,
+				A36CD3E81DEE4136002638EC /* SettingsAccountViewController.swift in Sources */,
 				A3715E3A1DDD2C310050AA39 /* SwiftyJSON.swift in Sources */,
 				E7A30F041CB48F3500000000 /* UserDataStorageViewController.swift in Sources */,
 				A34C0FB21DD97DD000A87D1C /* SettingsCoursesViewController.swift in Sources */,
