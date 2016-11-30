@@ -20,7 +20,8 @@ let ColorThemeSettingsTitleBarColorKey = "title_bar_color"
 let ColorThemeSettingsBackgroundColorKey = "background_color"
 
 let ColorThemeSettingsDefaultTitleTextColor: Int32 = Int32(bitPattern: 0xFFFFFFFF)
-let ColorThemeSettingsDefaultTitleBarColor: Int32 = Int32(bitPattern: 0xFFF58535)
+//let ColorThemeSettingsDefaultTitleBarColor: Int32 = Int32(bitPattern: 0xFFF58535)
+let ColorThemeSettingsDefaultTitleBarColor: Int32 = Int32(bitPattern: 0x000000)
 let ColorThemeSettingsDefaultBackgroundColor: Int32 = Int32(bitPattern: 0xFFFFFFFF)
 
 class ColorThemeSettings {

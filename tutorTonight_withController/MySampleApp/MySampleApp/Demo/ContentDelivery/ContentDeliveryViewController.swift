@@ -39,7 +39,7 @@ class ContentDeliveryViewController: UITableViewController {
         manager = AWSContentManager.defaultContentManager()
         
         // Sets up the UIs.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(ContentDeliveryViewController.showContentManagerActionOptions(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "showContentManagerActionOptions:")
         
         // Sets up the date formatter.
         dateFormatter.dateStyle = .ShortStyle
@@ -401,7 +401,7 @@ class ContentDeliveryWebViewController: UIViewController, UIWebViewDelegate {
         webView.loadRequest(NSURLRequest(URL: url))
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         print("The URL content failed to load \(error)")
         webView.loadHTMLString("<html><body><h1>Cannot Open the content of the URL.</h1></body></html>", baseURL: nil)
     }
