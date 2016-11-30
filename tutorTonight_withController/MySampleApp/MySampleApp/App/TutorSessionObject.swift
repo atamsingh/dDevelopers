@@ -1,6 +1,6 @@
 import Foundation
 
-class SettingsObject: NSObject {
+class TutorSessionObject: NSObject {
     
     var displayName: String
     var detailText: String

@@ -11,6 +11,9 @@
 		A36CD3E81DEE4136002638EC /* SettingsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */; };
 		A3715E3A1DDD2C310050AA39 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3715E391DDD2C310050AA39 /* SwiftyJSON.swift */; };
 		A3759BAD1DD7F06300044E4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3759BAC1DD7F06300044E4B /* LoginViewController.swift */; };
+		A3776F161DEE6047000BCBE9 /* TeachController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3776F151DEE6047000BCBE9 /* TeachController.swift */; };
+		A3776F181DEE8B71000BCBE9 /* TeachSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3776F171DEE8B71000BCBE9 /* TeachSessionViewController.swift */; };
+		A3776F1A1DEEAA9A000BCBE9 /* TutorSessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3776F191DEEAA9A000BCBE9 /* TutorSessionObject.swift */; };
 		A3CA3C091DE0F8FE006C738A /* SettingsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA3C081DE0F8FE006C738A /* SettingsObject.swift */; };
 		A3F26B761DD7F63700625261 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F26B751DD7F63700625261 /* SignUpViewController.swift */; };
 		A3F26B7E1DD8F1BF00625261 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F26B7D1DD8F1BF00625261 /* AccountViewController.swift */; };
@@ -144,6 +147,9 @@
 		A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsAccountViewController.swift; path = MySampleApp/App/SettingsAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		A3715E391DDD2C310050AA39 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = MySampleApp/App/SwiftyJSON.swift; sourceTree = "<group>"; };
 		A3759BAC1DD7F06300044E4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MySampleApp/App/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		A3776F151DEE6047000BCBE9 /* TeachController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeachController.swift; path = MySampleApp/App/TeachController.swift; sourceTree = SOURCE_ROOT; };
+		A3776F171DEE8B71000BCBE9 /* TeachSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeachSessionViewController.swift; path = MySampleApp/App/TeachSessionViewController.swift; sourceTree = SOURCE_ROOT; };
+		A3776F191DEEAA9A000BCBE9 /* TutorSessionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorSessionObject.swift; path = MySampleApp/App/TutorSessionObject.swift; sourceTree = SOURCE_ROOT; };
 		A3CA3C081DE0F8FE006C738A /* SettingsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsObject.swift; path = MySampleApp/App/SettingsObject.swift; sourceTree = SOURCE_ROOT; };
 		A3F26B751DD7F63700625261 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = MySampleApp/App/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
 		A3F26B7D1DD8F1BF00625261 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountViewController.swift; path = MySampleApp/App/AccountViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -190,6 +196,7 @@
 				B401C97958288C7700000000 /* ContentDelivery */,
 				1DD70E29F0353E3C00000000 /* DemoFeature.swift */,
 				A3CA3C081DE0F8FE006C738A /* SettingsObject.swift */,
+				A3776F191DEEAA9A000BCBE9 /* TutorSessionObject.swift */,
 				B401C9796821B38500000000 /* Push */,
 				B401C979D7EB76BD00000000 /* UserDataStorage */,
 				B401C9797245B88100000000 /* UserFiles */,
@@ -264,6 +271,8 @@
 		B401C979D2B106D300000000 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A3776F171DEE8B71000BCBE9 /* TeachSessionViewController.swift */,
+				A3776F151DEE6047000BCBE9 /* TeachController.swift */,
 				A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */,
 				A34C0FB11DD97DD000A87D1C /* SettingsCoursesViewController.swift */,
 				A3F26B7D1DD8F1BF00625261 /* AccountViewController.swift */,
@@ -511,6 +520,7 @@
 				E7A30F04C486504400000000 /* AppDelegate.swift in Sources */,
 				E7A30F04A2C9CE6F00000000 /* CloudLogicViewController.swift in Sources */,
 				A36CD3E81DEE4136002638EC /* SettingsAccountViewController.swift in Sources */,
+				A3776F181DEE8B71000BCBE9 /* TeachSessionViewController.swift in Sources */,
 				A3715E3A1DDD2C310050AA39 /* SwiftyJSON.swift in Sources */,
 				E7A30F041CB48F3500000000 /* UserDataStorageViewController.swift in Sources */,
 				A34C0FB21DD97DD000A87D1C /* SettingsCoursesViewController.swift in Sources */,
@@ -522,8 +532,10 @@
 				A3CA3C091DE0F8FE006C738A /* SettingsObject.swift in Sources */,
 				E7A30F04A916313200000000 /* MainViewController.swift in Sources */,
 				E7A30F043ED111E000000000 /* AppAnalyticsViewController.swift in Sources */,
+				A3776F1A1DEEAA9A000BCBE9 /* TutorSessionObject.swift in Sources */,
 				E7A30F04E10EB82700000000 /* UserIdentityViewController.swift in Sources */,
 				E7A30F041973803800000000 /* AWSMobileClient.swift in Sources */,
+				A3776F161DEE6047000BCBE9 /* TeachController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

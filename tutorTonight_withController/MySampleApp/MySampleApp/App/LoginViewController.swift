@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
         static var globalFirstName = ""
         static var globalLastName = ""
         static var globalEmail = ""
+        static var globalTutorStatus = ""
+        static var globalStudentStatus = ""
     }
     
 
@@ -87,6 +89,11 @@ class LoginViewController: UIViewController {
                             myGlobals.globalFirstName = info["firstName"] as String!
                             myGlobals.globalLastName = info["lastName"] as String!
                             myGlobals.globalEmail = info["email"] as String!
+                            let ss = info["studentStatus"] as String!
+                            let ts = info["tutorStatus"] as String!
+                            myGlobals.globalStudentStatus = (ss=="true") ? "Yes" : "No";
+                            myGlobals.globalTutorStatus = (ts=="true") ? "Yes" : "No";
+
                             
                             // next screen
                             self.performSegueWithIdentifier("toMain", sender: nil)

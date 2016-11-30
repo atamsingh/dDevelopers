@@ -17,10 +17,12 @@ import AWSMobileHubHelper
 
 class SettingsAccountViewController: UITableViewController {
     
-    var titles = ["First Name", "Last Name", "Email"]
+    var titles = ["First Name", "Last Name", "Email", "Student", "Tutor"]
     var details = [LoginViewController.myGlobals.globalFirstName,
                    LoginViewController.myGlobals.globalLastName,
-                   LoginViewController.myGlobals.globalEmail]
+                   LoginViewController.myGlobals.globalEmail,
+                   LoginViewController.myGlobals.globalStudentStatus,
+                   LoginViewController.myGlobals.globalTutorStatus]
                    
     var willEnterForegroundObserver: AnyObject!
     
