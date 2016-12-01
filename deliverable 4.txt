@@ -1,0 +1,42 @@
+pipe and filter 
+- passes data between components, we dont do that
+- filtered at each stage of the component
+- kinda like navigating down a tree, but cant really go up up a tree
+
+
+achitecture: object oriented
+- components
+	- our screens->linked to unique classes
+	- each class inherits from their respective UI superclasses 
+	- i.e. log in screen is LoginViewController -> inherits from UI view controller
+	       main tabbed view screen TabBarController -> inherits from UI Tab Bar Controller
+- connectors
+	- swift allows us to create segways: 
+		- an event that triggers a transition from one class to another
+	- segways or "method calls" are comparable to connectors between our classes which are components
+	- i.e. log in button triggers a specific segway that transitions to the main tabbed view class
+- data elements
+	- the unique segway object
+	- segways includes 3 data members
+		- identifier: unique ID
+			- some classes (our components) can have multiple segways
+			- the unique identifier determines which segway is triggered
+		- source: class which is gets triggered from
+		- destination: where to go/which class to load/instantiate
+	- these data points combined form the data element for each connecter
+
+
+
+design pattern: composite
+- views composed of views composed of elements, etc
+- "has a" hierarchy 
+- Home View
+	- Label View
+	- Label view 2
+	- UI Scrollable View
+		- Table View
+			- Cell 1 -> "composed of" multiple objects as a single instance
+			- Cell 2
+	- Label View
+	- Label View 2
+	etc...

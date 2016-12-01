@@ -16,6 +16,14 @@ import AWSMobileHubHelper
 
 class TeachSessionViewController: UITableViewController {
     
+    struct sessionDetails {
+        static var course = ""
+        static var time = ""
+        static var location = ""
+        static var studentName = ""
+        static var studentRating = ""
+    }
+    
     var sessions: [TutorSessionObject] = []
     var willEnterForegroundObserver: AnyObject!
     
@@ -32,8 +40,6 @@ class TeachSessionViewController: UITableViewController {
         willEnterForegroundObserver = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationWillEnterForegroundNotification, object: nil, queue: NSOperationQueue.currentQueue()) { _ in
             self.updateTheme()
         }
-        
-
         
         // SEND JSON REQUEST FOR COURSES
         let inputData: String = "{\"callType\":\"GET\",\"object\":\"COURSES\",\"data\":{}}"
@@ -63,14 +69,13 @@ class TeachSessionViewController: UITableViewController {
                     
                     var i=1
                     for result in readableJSON["info"]["courses"].arrayValue {
-                        let demoFeature = TutorSessionObject.init(
+                        let session = TutorSessionObject.init(
                             name: NSLocalizedString(result[String(i)].stringValue,comment: "course"),
                             detail: NSLocalizedString("Mon \(i)-\(i+1)", comment: "time"),
                             icon: "MonetizationEvent",
-                            seg: "tutoreSesionSeg"
-                            // NEED TO CREATE NEXT SCREEN WITH DETAILS OF SESSIONS //
+                            seg: "tutorSessionSeg"
                         )
-                        self.sessions.append(demoFeature)
+                        self.sessions.append(session)
                         i = i+1
                     }
                     self.tableView.reloadData()
@@ -93,10 +98,7 @@ class TeachSessionViewController: UITableViewController {
                     self.presentViewController(alertView, animated: true, completion: nil)
                 })
             }
-            
-            
         })
-        
         self.tableView.reloadData()
     }
     
@@ -109,10 +111,10 @@ class TeachSessionViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainViewCell")!
-        let demoFeature = sessions[indexPath.row]
-        cell.imageView!.image = UIImage(named: demoFeature.icon)
-        cell.textLabel!.text = demoFeature.displayName
-        cell.detailTextLabel!.text = demoFeature.detailText
+        let session = sessions[indexPath.row]
+        cell.imageView!.image = UIImage(named: session.icon)
+        cell.textLabel!.text = session.displayName
+        cell.detailTextLabel!.text = session.detailText
         return cell
     }
     
@@ -120,10 +122,16 @@ class TeachSessionViewController: UITableViewController {
         return sessions.count
     }
     
+    // WHEN A CELL IS SELECTED
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let demoFeature = sessions[indexPath.row]
-        self.performSegueWithIdentifier(demoFeature.seg, sender: nil)
+        let session = sessions[indexPath.row]
+//        let storyboard = UIStoryboard(name: session.storyboard, bundle: nil)
+//        let viewController = storyboard.instantiateViewControllerWithIdentifier(session.storyboard)
+//                self.navigationController!.pushViewController(viewController, animated: true)
+        sessionDetails.course = session.displayName
+        sessionDetails.time = session.detailText
+        self.performSegueWithIdentifier(session.seg, sender: nil)
     }
     
     func updateTheme() {
