@@ -11,6 +11,8 @@
 		A34C0FB21DD97DD000A87D1C /* SettingsCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C0FB11DD97DD000A87D1C /* SettingsCoursesViewController.swift */; };
 		A36CD3E81DEE4136002638EC /* SettingsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */; };
 		A3715E3A1DDD2C310050AA39 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3715E391DDD2C310050AA39 /* SwiftyJSON.swift */; };
+		A373284E1DF0F8C8001C34A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373284D1DF0F8C8001C34A2 /* HomeViewController.swift */; };
+		A37328521DF0F9AB001C34A2 /* HomeSessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37328511DF0F9AB001C34A2 /* HomeSessionObject.swift */; };
 		A3759BAD1DD7F06300044E4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3759BAC1DD7F06300044E4B /* LoginViewController.swift */; };
 		A3776F161DEE6047000BCBE9 /* TeachController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3776F151DEE6047000BCBE9 /* TeachController.swift */; };
 		A3776F181DEE8B71000BCBE9 /* TeachSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3776F171DEE8B71000BCBE9 /* TeachSessionViewController.swift */; };
@@ -148,6 +150,8 @@
 		A34C0FB11DD97DD000A87D1C /* SettingsCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCoursesViewController.swift; path = MySampleApp/App/SettingsCoursesViewController.swift; sourceTree = SOURCE_ROOT; };
 		A36CD3E71DEE4136002638EC /* SettingsAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsAccountViewController.swift; path = MySampleApp/App/SettingsAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		A3715E391DDD2C310050AA39 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = MySampleApp/App/SwiftyJSON.swift; sourceTree = "<group>"; };
+		A373284D1DF0F8C8001C34A2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = MySampleApp/App/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		A37328511DF0F9AB001C34A2 /* HomeSessionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSessionObject.swift; path = MySampleApp/App/HomeSessionObject.swift; sourceTree = SOURCE_ROOT; };
 		A3759BAC1DD7F06300044E4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MySampleApp/App/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		A3776F151DEE6047000BCBE9 /* TeachController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeachController.swift; path = MySampleApp/App/TeachController.swift; sourceTree = SOURCE_ROOT; };
 		A3776F171DEE8B71000BCBE9 /* TeachSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeachSessionViewController.swift; path = MySampleApp/App/TeachSessionViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -193,6 +197,7 @@
 		B401C979515A524700000000 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				A37328511DF0F9AB001C34A2 /* HomeSessionObject.swift */,
 				B401C979DD3BCE5700000000 /* AppAnalytics */,
 				B401C979A4148FAF00000000 /* CloudLogic */,
 				B401C97958288C7700000000 /* ContentDelivery */,
@@ -273,6 +278,7 @@
 		B401C979D2B106D300000000 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A373284D1DF0F8C8001C34A2 /* HomeViewController.swift */,
 				A30EAF1B1DEF86A600E542F5 /* TeachSessionDetail.swift */,
 				A3776F171DEE8B71000BCBE9 /* TeachSessionViewController.swift */,
 				A3776F151DEE6047000BCBE9 /* TeachController.swift */,
@@ -526,6 +532,7 @@
 				A3776F181DEE8B71000BCBE9 /* TeachSessionViewController.swift in Sources */,
 				A30EAF1C1DEF86A600E542F5 /* TeachSessionDetail.swift in Sources */,
 				A3715E3A1DDD2C310050AA39 /* SwiftyJSON.swift in Sources */,
+				A373284E1DF0F8C8001C34A2 /* HomeViewController.swift in Sources */,
 				E7A30F041CB48F3500000000 /* UserDataStorageViewController.swift in Sources */,
 				A34C0FB21DD97DD000A87D1C /* SettingsCoursesViewController.swift in Sources */,
 				A3F26B7E1DD8F1BF00625261 /* AccountViewController.swift in Sources */,
@@ -534,6 +541,7 @@
 				A3F26B761DD7F63700625261 /* SignUpViewController.swift in Sources */,
 				E7A30F0497F38FCE00000000 /* UtilityFunctions.swift in Sources */,
 				A3CA3C091DE0F8FE006C738A /* SettingsObject.swift in Sources */,
+				A37328521DF0F9AB001C34A2 /* HomeSessionObject.swift in Sources */,
 				E7A30F04A916313200000000 /* MainViewController.swift in Sources */,
 				E7A30F043ED111E000000000 /* AppAnalyticsViewController.swift in Sources */,
 				A3776F1A1DEEAA9A000BCBE9 /* TutorSessionObject.swift in Sources */,
