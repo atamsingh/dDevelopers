@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
         static var globalFirstName = ""
         static var globalLastName = ""
         static var globalEmail = ""
+        static var globalTutorStatus = ""
+        static var globalStudentStatus = ""
     }
     
 
@@ -36,6 +38,7 @@ class LoginViewController: UIViewController {
             return
         }
         
+        // SEND JSON
         let userName = loginBox.text!
         let password = passwordBox.text!
         let inputData: String = "{\"callType\"  : \"GET\",\"object\"    : \"USERS\",\"data\"      : {\"username\"  : \"\(userName)\",\"password\"  : \"\(password)\"}}"
@@ -53,7 +56,7 @@ class LoginViewController: UIViewController {
         print("AWS JSON REQUEST: \(jsonInput)")
         
         
-        
+        // RECEIVE JSON
         AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
             if let result = result {
                 dispatch_async(dispatch_get_main_queue(), {
@@ -86,6 +89,11 @@ class LoginViewController: UIViewController {
                             myGlobals.globalFirstName = info["firstName"] as String!
                             myGlobals.globalLastName = info["lastName"] as String!
                             myGlobals.globalEmail = info["email"] as String!
+                            let ss = info["studentStatus"] as String!
+                            let ts = info["tutorStatus"] as String!
+                            myGlobals.globalStudentStatus = (ss=="true") ? "Yes" : "No";
+                            myGlobals.globalTutorStatus = (ts=="true") ? "Yes" : "No";
+
                             
                             // next screen
                             self.performSegueWithIdentifier("toMain", sender: nil)
@@ -97,8 +105,9 @@ class LoginViewController: UIViewController {
                 })
             }
 
-            var errorMessage: String
+            
             if let error = error {
+                var errorMessage: String
                 if let cloudUserInfo = error.userInfo as? [String: AnyObject],
                     cloudMessage = cloudUserInfo["errorMessage"] as? String {
                     errorMessage = "Error: \(cloudMessage)"

@@ -22,7 +22,6 @@ class SignUpViewController: UIViewController {
     
     // CALL AWS GIVEN JSON
     @IBAction func signUpButtonPress(sender: AnyObject) {
-        
 
         if firstNameBox.text!.characters.count < 2  ||
             lastNameBox.text!.characters.count < 2  ||
@@ -35,8 +34,7 @@ class SignUpViewController: UIViewController {
             alert.addButtonWithTitle("Ok")
             alert.show()
         }
-        
-        
+
         /* TEST
          {
              "callType"  : "PUT",
@@ -53,16 +51,15 @@ class SignUpViewController: UIViewController {
          }
          */
         
-        
         let firstName = firstNameBox.text!
         let lastName = lastNameBox.text!
         let email = emailBox.text!
         let password = passwordBox.text!
         let studentStatus = true
-        let tutorStatus = false
+        let tutorStatus = true
         
 
-        let inputData: String = "{\"callType\"  : \"PUT\",\"object\"    : \"USERS\",\"data\"      : {\"username\"  : \"\(email)\",\"password\"  : \"\(password)\",\"email\"  : \"\(email)\",\"firstName\"  : \"\(firstName)\",\"lastName\"  : \"\(lastName)\",\"studentStatus\"  : true, \"tutorStatus\"  : false}}"
+        let inputData: String = "{\"callType\"  : \"PUT\",\"object\"    : \"USERS\",\"data\"      : {\"username\"  : \"\(email)\",\"password\"  : \"\(password)\",\"email\"  : \"\(email)\",\"firstName\"  : \"\(firstName)\",\"lastName\"  : \"\(lastName)\",\"studentStatus\"  : \"\(studentStatus)\", \"tutorStatus\"  : \"\(tutorStatus)\"}}"
         let functionName = "mainController"
         let jsonInput = inputData.makeJsonable()
         let jsonData = jsonInput.dataUsingEncoding(NSUTF8StringEncoding)!
@@ -82,7 +79,6 @@ class SignUpViewController: UIViewController {
         AWSCloudLogic.defaultCloudLogic().invokeFunction(functionName, withParameters: parameters, completionBlock: {(result: AnyObject?, error: NSError?) -> Void in
             if let result = result {
                 dispatch_sync(dispatch_get_main_queue(), {
-                    
                     
                     //RETREIVE JSON OBJECT FROM AWS
                     let NSjsonStr = result as! NSString;
@@ -113,11 +109,12 @@ class SignUpViewController: UIViewController {
 // "{\"status\":\"pass\",\"info\":{\"userID\":\"268116fb-3b72-4872-8034-0b786fc5d7aa\",\"userName\":\"sunnysingh\",\"firstName\":\"Sunny\",\"lastName\":\"Singh\",\"studentStatus\":\"false\",\"tutorStatus\":\"false\"}}"
                             let userID = info["userID"] as String!
                             
+                            print(userID)
+                            
                             
                             // next screen
 //                            self.performSegueWithIdentifier("toMain", sender: nil)
                             self.performSegueWithIdentifier("signup2main", sender: nil)
-                            
                             
                         }
                     } catch {
@@ -131,8 +128,8 @@ class SignUpViewController: UIViewController {
             print("after async")
             
             
-            var errorMessage: String
             if let error = error {
+                var errorMessage: String
                 if let cloudUserInfo = error.userInfo as? [String: AnyObject],
                     cloudMessage = cloudUserInfo["errorMessage"] as? String {
                     errorMessage = "Error: \(cloudMessage)"
@@ -151,7 +148,6 @@ class SignUpViewController: UIViewController {
         
     }
 }
-
 
 extension String {
     private func makeJsonable() -> String {

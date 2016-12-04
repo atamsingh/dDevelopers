@@ -15,11 +15,16 @@ import UIKit
 import AWSMobileHubHelper
 
 
-class SettingsCoursesViewController: UITableViewController {
+class SettingsAccountViewController: UITableViewController {
     
-    var demoFeatures = ["one", "two"]
+    var titles = ["First Name", "Last Name", "Email", "Student", "Tutor"]
+    var details = [LoginViewController.myGlobals.globalFirstName,
+                   LoginViewController.myGlobals.globalLastName,
+                   LoginViewController.myGlobals.globalEmail,
+                   LoginViewController.myGlobals.globalStudentStatus,
+                   LoginViewController.myGlobals.globalTutorStatus]
+                   
     var willEnterForegroundObserver: AnyObject!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,31 +33,34 @@ class SettingsCoursesViewController: UITableViewController {
         willEnterForegroundObserver = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationWillEnterForegroundNotification, object: nil, queue: NSOperationQueue.currentQueue()) { _ in
             self.updateTheme()
         }
+        
+        //THIS WAY WORKS AS WELL! USE THIS METHOD FOR DYNAMIC UPDATING
+//        self.titles.append("First Name")
+//        self.titles.append("Last Name")
+//        self.titles.append("Email")
+//        self.details.append(LoginViewController.myGlobals.globalFirstName)
+//        self.details.append(LoginViewController.myGlobals.globalLastName)
+//        self.details.append(LoginViewController.myGlobals.globalEmail)
+//        self.tableView.reloadData()
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(willEnterForegroundObserver)
     }
     
+    // NUMBER OF CELLS TO POPULATE
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
+    }
     
-    
+    // DETAILS OF EACH CELL
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainViewCell")!
-//        let demoFeature = demoFeatures[indexPath.row]
-//        cell.imageView!.image = UIImage(named: demoFeature.icon)
-//        cell.textLabel!.text = demoFeature.displayName
-//        cell.detailTextLabel!.text = demoFeature.detailText
-        cell.textLabel!.text = demoFeatures[indexPath.row]
+        cell.textLabel!.text = titles[indexPath.row]
+        cell.detailTextLabel!.text = details[indexPath.row]
         return cell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return demoFeatures.count
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
     
     func updateTheme() {
         let settings = ColorThemeSettings.sharedInstance
