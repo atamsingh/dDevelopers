@@ -42,7 +42,15 @@ class TeachSessionViewController: UITableViewController {
         }
         
         // SEND JSON REQUEST FOR COURSES
-        let inputData: String = "{\"callType\":\"GET\",\"object\":\"COURSES\",\"data\":{}}"
+        /* TEST
+         {
+         "callType"  : "GET",
+         "object"    : "PENDING_SESSIONS",
+         "data"      : {
+         }
+         }
+         */
+        let inputData: String = "{\"callType\":\"GET\",\"object\":\"PENDING_SESSIONS\",\"data\":{}}"
         let functionName = "mainController"
         let jsonInput = inputData.makeJsonable()
         let jsonData = jsonInput.dataUsingEncoding(NSUTF8StringEncoding)!
@@ -63,15 +71,31 @@ class TeachSessionViewController: UITableViewController {
                 dispatch_async(dispatch_get_main_queue(), {
                     
                     let NSjsonStr = result as! NSString;
+//                    let NSjsonStr = "{\"status\":\"pass\",\"info\":{\"sessions\":[{\"sessionID\":\"80246b78-370b-496d-90fa-d2af1f99d91e|~~|8\",\"sessionDate\":\"Nov 12, 2016\",\"courseName\":\"HIST1001\",\"startTime\":\"10:00\",\"studentID\":\"80246b78-370b-496d-90fa-d2af1f99d91e\",\"endTime\":\"14:00\"},{\"sessionID\":\"80246b78-370b-496d-90fa-d2af1f99d91e|~~|2\",\"sessionDate\":\"Nov 12, 2016\",\"courseName\":\"COMP1001\",\"startTime\":\"10:00\",\"studentID\":\"80246b78-370b-496d-90fa-d2af1f99d91e\",\"endTime\":\"14:00\"}]}}"
                     let NSdataStr = NSjsonStr.dataUsingEncoding(NSUTF8StringEncoding)!;
                     let readableJSON = JSON(data: NSdataStr, options: NSJSONReadingOptions.MutableContainers, error: nil)
+                    print ("AWS RESPONSE:")
                     print (readableJSON)
+//                    print (NSdataStr)
+//                    print (readableJSON)
+//                    {
+//                        \"status\": \"pass\",
+//                        \"info\": {
+//                        \"sessions\": [
+//                        {
+//                            \"sessionID\": \"80246b78-370b-496d-90fa-d2af1f99d91e|~~|8\",
+//                            \"sessionDate\": \"Nov 12,2016\",
+//                            \"courseName\": \"HIST1001\",
+//                            \"startTime\": \"10: 00\",
+//                            \"studentID\": \"80246b78-370b-496d-90fa-d2af1f99d91e\",
+//                            \"endTime\": \"14: 00\"
+//                        }
                     
                     var i=1
-                    for result in readableJSON["info"]["courses"].arrayValue {
+                    for result in readableJSON["info"]["sessions"].arrayValue {
                         let session = TutorSessionObject.init(
-                            name: NSLocalizedString(result[String(i)].stringValue,comment: "course"),
-                            detail: NSLocalizedString("Mon \(i)-\(i+1)", comment: "time"),
+                            name: NSLocalizedString(result["courseName"].stringValue,comment: "course"),
+                            date: NSLocalizedString(result["sessionDate"].stringValue, comment: "date"),
                             icon: "MonetizationEvent",
                             seg: "tutorSessionSeg"
                         )
@@ -113,8 +137,8 @@ class TeachSessionViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainViewCell")!
         let session = sessions[indexPath.row]
         cell.imageView!.image = UIImage(named: session.icon)
-        cell.textLabel!.text = session.displayName
-        cell.detailTextLabel!.text = session.detailText
+        cell.textLabel!.text = session.name
+        cell.detailTextLabel!.text = session.date
         return cell
     }
     
@@ -129,8 +153,8 @@ class TeachSessionViewController: UITableViewController {
 //        let storyboard = UIStoryboard(name: session.storyboard, bundle: nil)
 //        let viewController = storyboard.instantiateViewControllerWithIdentifier(session.storyboard)
 //                self.navigationController!.pushViewController(viewController, animated: true)
-        sessionDetails.course = session.displayName
-        sessionDetails.time = session.detailText
+        sessionDetails.course = session.name
+        sessionDetails.time = session.date
         self.performSegueWithIdentifier(session.seg, sender: nil)
     }
     

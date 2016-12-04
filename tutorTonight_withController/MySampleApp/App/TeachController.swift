@@ -14,7 +14,7 @@ class TeachController: UIViewController {
 
     override func viewDidLoad() {
         
-        if (LoginViewController.myGlobals.globalTutorStatus == "Yes"){
+        if (LoginViewController.myGlobals.globalTutorStatus == "No"){
             print(LoginViewController.myGlobals.globalTutorStatus)
             self.performSegueWithIdentifier("tutorSeg", sender: nil)
         }

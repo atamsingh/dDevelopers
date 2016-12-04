@@ -2,14 +2,24 @@ import Foundation
 
 class TutorSessionObject: NSObject {
     
-    var displayName: String
-    var detailText: String
+//    {
+//    \"sessionID\": \"80246b78-370b-496d-90fa-d2af1f99d91e|~~|8\",
+//    \"sessionDate\": \"Nov 12,
+//    2016\",
+//    \"courseName\": \"HIST1001\",
+//    \"startTime\": \"10: 00\",
+//    \"studentID\": \"80246b78-370b-496d-90fa-d2af1f99d91e\",
+//    \"endTime\": \"14: 00\"
+//    }
+
+    var name: String
+    var date: String
     var icon: String
     var seg: String
     
-    init(name: String, detail: String, icon: String, seg: String) {
-        self.displayName = name
-        self.detailText = detail
+    init(name: String, date: String, icon: String, seg: String) {
+        self.name = name
+        self.date = date
         self.icon = icon
         self.seg = seg
         super.init()

@@ -280,9 +280,9 @@
 		B401C979D2B106D300000000 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A373284D1DF0F8C8001C34A2 /* HomeViewController.swift */,
 				A37328551DF341FA001C34A2 /* TutorCalendarAddEntry.swift */,
 				A37328531DF336E5001C34A2 /* TutorCalendarViewController.swift */,
-				A373284D1DF0F8C8001C34A2 /* HomeViewController.swift */,
 				A30EAF1B1DEF86A600E542F5 /* TeachSessionDetail.swift */,
 				A3776F171DEE8B71000BCBE9 /* TeachSessionViewController.swift */,
 				A3776F151DEE6047000BCBE9 /* TeachController.swift */,
