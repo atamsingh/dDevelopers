@@ -17,9 +17,11 @@ import AWSMobileHubHelper
 
 class TeachSessionDetail: UITableViewController {
     
-    var titles = ["Course", "Time"]
+    var titles = ["Course", "Date", "From", "To"]
     var details = [TeachSessionViewController.sessionDetails.course,
-                   TeachSessionViewController.sessionDetails.time]
+                   TeachSessionViewController.sessionDetails.date,
+                   TeachSessionViewController.sessionDetails.startTime,
+                   TeachSessionViewController.sessionDetails.endTime]
     
     var willEnterForegroundObserver: AnyObject!
     

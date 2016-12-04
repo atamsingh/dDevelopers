@@ -14,12 +14,16 @@ class TutorSessionObject: NSObject {
 
     var name: String
     var date: String
+    var startTime: String
+    var endTime: String
     var icon: String
     var seg: String
     
-    init(name: String, date: String, icon: String, seg: String) {
+    init(name: String, date: String, startTime: String, endTime: String, icon: String, seg: String) {
         self.name = name
         self.date = date
+        self.startTime = startTime
+        self.endTime = endTime
         self.icon = icon
         self.seg = seg
         super.init()

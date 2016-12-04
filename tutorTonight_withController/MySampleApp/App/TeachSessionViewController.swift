@@ -18,9 +18,9 @@ class TeachSessionViewController: UITableViewController {
     
     struct sessionDetails {
         static var course = ""
-        static var time = ""
-        static var location = ""
-        static var studentName = ""
+        static var date = ""
+        static var startTime = ""
+        static var endTime = ""
         static var studentRating = ""
     }
     
@@ -91,16 +91,16 @@ class TeachSessionViewController: UITableViewController {
 //                            \"endTime\": \"14: 00\"
 //                        }
                     
-                    var i=1
                     for result in readableJSON["info"]["sessions"].arrayValue {
                         let session = TutorSessionObject.init(
                             name: NSLocalizedString(result["courseName"].stringValue,comment: "course"),
                             date: NSLocalizedString(result["sessionDate"].stringValue, comment: "date"),
+                            startTime: NSLocalizedString(result["startTime"].stringValue,comment: "startTime"),
+                            endTime: NSLocalizedString(result["endTime"].stringValue, comment: "endTime"),
                             icon: "MonetizationEvent",
                             seg: "tutorSessionSeg"
                         )
                         self.sessions.append(session)
-                        i = i+1
                     }
                     self.tableView.reloadData()
                 })
@@ -138,7 +138,7 @@ class TeachSessionViewController: UITableViewController {
         let session = sessions[indexPath.row]
         cell.imageView!.image = UIImage(named: session.icon)
         cell.textLabel!.text = session.name
-        cell.detailTextLabel!.text = session.date
+        cell.detailTextLabel!.text = session.date + " " + session.startTime + "-" + session.endTime
         return cell
     }
     
@@ -154,7 +154,9 @@ class TeachSessionViewController: UITableViewController {
 //        let viewController = storyboard.instantiateViewControllerWithIdentifier(session.storyboard)
 //                self.navigationController!.pushViewController(viewController, animated: true)
         sessionDetails.course = session.name
-        sessionDetails.time = session.date
+        sessionDetails.date = session.date
+        sessionDetails.startTime = session.startTime
+        sessionDetails.endTime = session.endTime
         self.performSegueWithIdentifier(session.seg, sender: nil)
     }
     
